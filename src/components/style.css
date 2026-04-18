@@ -1,0 +1,10 @@
+.mon-texte-custom {
+  color: #1A237E;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  letter-spacing: 2px;
+}
+
+.mon-texte-custom:hover {
+  color: #FFB300; /* Change en orange au survol */
+}
