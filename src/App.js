@@ -1,34 +1,25 @@
-import React from 'react';
-import { Layout } from 'antd';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Importation des composants que tu as créés
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Accueil from './accueil';
-const { Content } = Layout;
+import Formations from './components/formations';
+import Contact from './components/contact';
+import CoursEnLigne from './components/coursenligne'; // 1. Importe la nouvelle page
+import Login from './components/login'; // 1. Importe la page de connexion
 
 function App() {
   return (
     <Router>
-      <Layout style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        {/* La barre de navigation est appelée ici une seule fois */}
-        <Navbar />
-        
-        <Content style={{ flex: 1 }}>
-          <Routes>
-            {/* La page d'accueil est appelée ici via sa route */}
-            <Route path="/" element={<Accueil />} />
-            
-            {/* Plus tard, tu ajouteras tes autres pages ici :
-            <Route path="/formations" element={<Formations />} /> 
-            */}
-          </Routes>
-        </Content>
-
-        {/* Le bas de page est appelé ici une seule fois */}
-        <Footer />
-      </Layout>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Accueil />} />
+        <Route path="/formations" element={<Formations />} />
+        <Route path="/cours-en-ligne" element={<CoursEnLigne />} /> {/* 2. Ajoute la route */}
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} /> {/* 2. Ajoute la route pour la page de connexion
+         */}
+      </Routes>
+      <Footer />
     </Router>
   );
 }
